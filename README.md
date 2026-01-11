@@ -150,11 +150,29 @@ vstep_scraper/
 - Cần có tài khoản luyenthivstep.vn để cào
 - Đề trùng lặp sẽ tự động được phát hiện và xóa khi dùng `--cleanup`
 
-## 🔧 Cấu hình tài khoản
+## 🔧 Cấu hình
 
-Mở file `main.py` và thay đổi thông tin đăng nhập:
+### Bước 1: Tạo file .env
 
-```python
-USERNAME = "your_username"
-PASSWORD = "your_password"
+```bash
+cp .env.example .env
 ```
+
+### Bước 2: Điền thông tin đăng nhập
+
+Mở file `.env` và thay đổi:
+
+```env
+VSTEP_USERNAME=your_username
+VSTEP_PASSWORD=your_password
+```
+
+### Các biến môi trường
+
+| Biến | Mô tả | Mặc định |
+|------|-------|----------|
+| `VSTEP_USERNAME` | Tên đăng nhập | (bắt buộc) |
+| `VSTEP_PASSWORD` | Mật khẩu | (bắt buộc) |
+| `VSTEP_BASE_URL` | URL website | https://luyenthivstep.vn |
+| `OUTPUT_DIR` | Thư mục lưu dữ liệu | data |
+

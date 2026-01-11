@@ -13,6 +13,13 @@ import argparse
 from typing import Dict, List, Optional
 from playwright.sync_api import sync_playwright, Page, Browser
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not installed, use environment variables directly
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -20,11 +27,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Configuration
-BASE_URL = "https://luyenthivstep.vn"
-USERNAME = "VSTEP257672"
-PASSWORD = "426353"
-OUTPUT_DIR = "data"
+# Configuration from environment variables
+BASE_URL = os.getenv("VSTEP_BASE_URL", "https://luyenthivstep.vn")
+USERNAME = os.getenv("VSTEP_USERNAME", "")
+PASSWORD = os.getenv("VSTEP_PASSWORD", "")
+OUTPUT_DIR = os.getenv("OUTPUT_DIR", "data")
+
+# Validate required config
+if not USERNAME or not PASSWORD:
+    logger.warning("VSTEP_USERNAME and VSTEP_PASSWORD not set. Please create a .env file or set environment variables.")
 
 
 class VstepScraper:

@@ -19,6 +19,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Environment variables (contains secrets)
+.env
+
 # Data (scraped exams)
 data/
+
 

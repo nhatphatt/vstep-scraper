@@ -145,6 +145,16 @@ vstep_scraper/
 
 ## ⚠️ Lưu ý
 
-- Một số đề là VIP (trả phí) sẽ tự động bị bỏ qua
+- **Tài khoản VIP**: Cào được tất cả đề (kể cả đề VIP)
+- **Tài khoản thường**: Đề VIP sẽ tự động bị bỏ qua
 - Cần có tài khoản luyenthivstep.vn để cào
 - Đề trùng lặp sẽ tự động được phát hiện và xóa khi dùng `--cleanup`
+
+## 🔧 Cấu hình tài khoản
+
+Mở file `main.py` và thay đổi thông tin đăng nhập:
+
+```python
+USERNAME = "your_username"
+PASSWORD = "your_password"
+```
